@@ -8,7 +8,10 @@ OPCIONES_ESTADO = (
 
 class Post(models.Model):
     Nombre = models.CharField(max_length=10)
+    RutCliente = models.CharField(max_length=10, blank=False,primary_key=True)
+    NombreMascota  = models.CharField(max_length=10)
     Raza = models.CharField(max_length=100)
     Descripcion = models.CharField(max_length=100)
     Fotografia = models.ImageField(upload_to='media')
     Estado = models.CharField(choices=OPCIONES_ESTADO, max_length=10,default=1)
+    

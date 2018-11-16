@@ -93,12 +93,16 @@
                     </a>
                   </div>
                    </div>
-    
-                   <div class="container">
+
+                  {% if user.is_authenticated %}
+        <center><h3>Usted esta logeado como {{ user.username }}</h1>
+           </center><center> <a href="{% url 'sign_out' %}">Cerrar sesión</a></center>
+             <div class="container">
                     <div class = "row mt-3">
                         <div class = "col 6">
                             {% block content %}
-                            <form name="datos" method="POST" enctype="multipart/form-data"> {% csrf_token %}   
+                            <form name="datos" method="POST" enctype="multipart/form-data">
+                             {% csrf_token %}   
                             {{ form.as_p }}
                            
                                 <input class="btn btn-primary" type="submit" value="Enviar">
@@ -111,5 +115,13 @@
                         </div>
                     </div>
                 </div>
+         {% else %}
+       <center> <a href="{% url 'sign_up' %}">Registrate</a></center>s
+        <center><a href="{% url 'sign_in' %}">Iniciar sesión</a></center>
+        <center><h3>Usted esta logeado como Invitado</h3></center>
+        {% endif %}
+    
+                   
             </body>
+                <br>
         </html>
