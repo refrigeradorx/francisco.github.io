@@ -31,13 +31,47 @@
                   <input id="registrarse" type="submit" name="signup_submit" value="Iniciar sesion" />
                   <div class="col right">
                     <button onclick="login()" id="login" class="btn facebook" data-provider="facebook"><i></i><span>Facebook</span></button>
-
+                    <fb:login-button 
+                    scope="public_profile,email"
+                    onlogin="checkLoginState();">
+                  </fb:login-button>
                 </div>
                 </div> 
 
         </div>
     </main>
-        <script src="app/facebookApi.js"></script>
+
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1382333588570853',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+  </script>
         <script src="app/menu.js"></script>
 </body>           
 </html>
