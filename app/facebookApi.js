@@ -29,7 +29,7 @@ window.fbAsyncInit = function() {
 function login() {
     FB.login(function(response) {
         if (response.status === 'connected') {
-            window.location.replace("https://jeisona.github.io/producto.html");
+            window.location.replace("index.html");
             //document.getElementById('name').innerHTML = "<a>'" + response.first_name + "'</a>";
             //document.getElementById('last_name').innerHTML = "<a>'" + response.last_name + "'</a>";
             //document.getElementById('login').style.visibility = 'hidden';
