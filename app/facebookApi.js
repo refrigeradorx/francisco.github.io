@@ -57,7 +57,6 @@ function fbLogoutUser() {
     } else if (response.status === 'not_authorized') 
     {
     FB.logout(function(response) {
-        window.location.replace("index.html");
     });
 }
 });}
