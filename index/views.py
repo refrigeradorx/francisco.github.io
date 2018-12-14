@@ -6,6 +6,8 @@ from .models import Perfil
 from .forms import SignUpForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LoginView, LogoutView 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 # Create your views here.
 
 def post_list(request):
@@ -35,3 +37,6 @@ class BienvenidaView(TemplateView):
 class SignOutView(LogoutView):
     pass
 
+@login_required
+def home(request):
+    return render(request, 'core/home.html')

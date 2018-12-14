@@ -1,6 +1,6 @@
 
-.sheader{
-    background-color: rgb(60, 102, 60);
+header{
+    background-color: #01DF01;
     }
 
 footer{
@@ -175,7 +175,7 @@ section{
         }
 
 nav{
-    background-color: rgb(2, 19, 6);
+    background-color: #04B431;
     }
 	
 	
@@ -193,8 +193,8 @@ nav{
     }
     
     
-    .header{
-        background-color: rgb(7, 41, 28);
+    header{
+        background-color: rgb(60, 201, 147);
         }
     
      .logo{
@@ -291,8 +291,9 @@ nav{
         }
     
        
-    body{
+    .body{
         margin:0px;
+        background-color: aqua;
         
     }
 
@@ -309,7 +310,7 @@ nav{
             flex-direction: column;
           }
           .column > div {
-            background: rgb(5, 46, 30);
+            background: rgb(5, 170, 107);
             margin:0em;
             padding: 0.5em;
           }

@@ -1,0 +1,82 @@
+
+
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            ADMINISTRADOR
+        </title>
+        <meta charset="UTF=8"/>
+        <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{% static 'css/csstarea.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="{% static 'css/flexboxgrid.css' %}" type="text/css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'style/main.css' %}">
+
+        <script src = "{% static 'JavaScript/funciones.js' %}"> </script>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    </head>
+<body margin ="0%">
+    
+    <nav>
+    <head >
+      <ul class="nav"></ul>
+      <h3>Usted esta logeado como {{ user.username }}</h1>    
+          <a href="{% url 'sign_out' %}">Cerrar sesión</a>
+      </ul>
+              <div class ="row">
+               <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+              </div>
+              <ul class="nav">
+                   <div class="col-xs-12 col-sm-8 col-md-6 ">
+                      <li><a href="{% url 'indesssx' %}"><font color="white">INICIO</font></a></li>
+                      <li><a href="{% url 'sign_up' %}"><font color="white">REGISTRAR TECNICO</font>   </a></li>
+                       <li><a href="{% url 'cliente' %}"><font color="white">CREAR CLIENTE</font> </a></li>
+                       <li><a href="{% url 'ligar' %}"><font color="white">Asignar Cliente</font> </a></li>
+                       <li><a href="{% url 'listaligar' %}"><font color="white">Asignar lista</font> </a></li>
+
+                      </div>
+               </div>
+              </ul>
+          
+    </header>
+<header >
+   
+      
+
+                
+                 
+                  <center>
+                        <h2>Lista</h2>
+                            {% block content %}
+                            {% if listas %}
+                            {% for asigna in listas %}
+                            <center>
+                            <ul class="nav">
+                            <div class="col-xs-12">
+                            <li><p><font color="black">Nombre tecnico:</font></p><td><font color="black">{{ asigna.tecnico }}</font></td></li>
+                            <li><font color="black"><p>Rut cliente:</p><td>{{ asigna.cliente }}</td></font></li>
+                            <li><font color="black"><p>Nombre cliente:</p><td>{{ asigna.cliente.nombre }}</td></font></li>
+                            <li><font color="black"><p>Direccion cliente:</p><td>{{ asigna.cliente.direccion }}</td></font></li>
+                            <li><font color="black"><p>Ciudad cliente:</p><td>{{ asigna.cliente.ciudad }}</td></font></li>
+                            <li><font color="black"><p>Comuna cliente:</p><td>{{ asigna.cliente.comuna }}</td></font></li>
+                            <li><font color="black"><p>Telefono cliente:</p><td>{{ asigna.cliente.telefono }}</td></font></li>
+                            <li><font color="black"><p>Email cliente:</p><td>{{ asigna.cliente.email }}</td></font></li>
+
+                        </ul>
+                             </center>
+                                {% endfor %}
+
+                            {% else %}
+                            miau
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </center>
+    
+        {% endblock %}
+            </body>
+                <br>
+        </html>
