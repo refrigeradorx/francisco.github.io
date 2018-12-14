@@ -52,7 +52,7 @@ function fbLogoutUser() {
     FB.getLoginStatus(function(response) {
         if (response && response.status === 'connected') {
     FB.logout(function(response) {
-        window.location.replace("index.html");
+    
     });
     } else if (response.status === 'not_authorized') 
     {
