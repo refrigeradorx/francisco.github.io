@@ -6,17 +6,14 @@ window.fbAsyncInit = function() {
     });
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            document.getElementById('logout').style.visibility = 'visible';
-            document.getElementById('perfil').style.visibility = 'visible';
+            window.location.replace("https://jeisona.github.io/producto.html");
+            document.getElementById('login').style.visibility = 'hidden';
+            /*document.getElementById('logout').style.visibility = 'visible';
+            document.getElementById('perfil').style.visibility = 'visible';*/
         } else if (response.status === 'not_authorized') {
-            document.getElementById('logout').style.visibility = 'hidden';
-            document.getElementById('perfil').style.visibility = 'hidden';
-            document.getElementById('botones').style.display= 'none';
-
+            /*document.getElementById('logout').style.visibility = 'hidden';
+            document.getElementById('perfil').style.visibility = 'hidden';*/
         } else {
-            document.getElementById('logout').style.visibility = 'hidden';
-            document.getElementById('perfil').style.visibility = 'hidden';
-            document.getElementById('botones').style.display= 'none';
         }
     });
 };
@@ -32,18 +29,16 @@ window.fbAsyncInit = function() {
 function login() {
     FB.login(function(response) {
         if (response.status === 'connected') {
-            document.getElementById('name').innerHTML = "<a>'" + response.first_name + "'</a>";
-            document.getElementById('last_name').innerHTML = "<a>'" + response.last_name + "'</a>";
-            document.getElementById('perfil').style.visibility = 'visible';
+            window.location.replace("https://jeisona.github.io/producto.html");
+            //document.getElementById('name').innerHTML = "<a>'" + response.first_name + "'</a>";
+            //document.getElementById('last_name').innerHTML = "<a>'" + response.last_name + "'</a>";
+            //document.getElementById('login').style.visibility = 'hidden';
+            /*document.getElementById('logout').style.visibility = 'visible';
+            document.getElementById('perfil').style.visibility = 'visible';*/
         } else if (response.status === 'not_authorized') {
-            document.getElementById('logout').style.visibility = 'hidden';
-            document.getElementById('perfil').style.visibility = 'hidden';
-            document.getElementById('botones').style.display= 'none';
+            //document.getElementById('perfil').style.visibility = 'hidden';
         } else {
-            document.getElementById('perfil').style.visibility = 'hidden';
-            document.getElementById('logout').style.visibility = 'hidden';
-            document.getElementById('perfil').style.visibility = 'hidden';
-            document.getElementById('botones').style.display= 'none';
+            //document.getElementById('perfil').style.visibility = 'hidden';
  
         }
     }, {scope: 'email'});
@@ -52,11 +47,12 @@ function fbLogoutUser() {
     FB.getLoginStatus(function(response) {
         if (response && response.status === 'connected') {
     FB.logout(function(response) {
-    
+        document.location.reload();
     });
     } else if (response.status === 'not_authorized') 
     {
     FB.logout(function(response) {
+        document.location.reload();
     });
 }
 });}
